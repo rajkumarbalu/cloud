@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.appinfo.InstanceInfo;
 import com.rest.client.quote.model.Quote;
 
 @RestController
@@ -20,6 +21,7 @@ public class QuoteController {
 	@GetMapping("/all")
 	public List<Quote> getAllQuotes() {
 		//RestTemplate restTemplate = new RestTemplate();
+		//InstanceInfo info = 
 		List<Quote> forObject = restTemplate.getForObject("http://QUOTE-SERVICE/rest/db/all", List.class);
 		return forObject;
 	}
