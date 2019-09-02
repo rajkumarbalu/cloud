@@ -32,5 +32,15 @@ public class UserController {
 	public String getCountByAge(@PathVariable int age) {
 		return "Total no of records : " + service.countByAge(age);
 	}
+	
+	@GetMapping("/profession-age/{profession}/{age}")
+	public List<User> getCountByAge(@PathVariable String profession, @PathVariable int age) {
+		return service.getByProvessionAndAge(profession, age);
+	}
+	
+	@GetMapping("/profession/sorted/{profession}")
+	public List<User> getByProfessionSorted(@PathVariable String profession) {
+		return service.getByProfessionDesc(profession);
+	}
 
 }

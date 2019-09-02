@@ -21,7 +21,7 @@ public class UserService {
 		List<User> users = new ArrayList<>();
 		users.add(new User(111, "A", "IT", 23));
 		users.add(new User(123, "B", "IT", 23));
-		users.add(new User(133, "D", "IT1", 23));
+		users.add(new User(133, "D", "IT1", 25));
 		users.add(new User(143, "E", "IT", 23));
 		users.add(new User(153, "F", "IT1", 23));
 		users.add(new User(163, "G", "IT", 23));
@@ -38,5 +38,13 @@ public class UserService {
 	
 	public long countByAge(int age) {
 		return repository.countByAge(age);
+	}
+	
+	public List<User> getByProvessionAndAge(String profession,int age) {
+		return repository.findByProfessionAndAge(profession, age);
+	}
+	
+	public List<User> getByProfessionDesc(String profession) {
+		return repository.findByProfessionOrderByNameDesc(profession);
 	}
 }
